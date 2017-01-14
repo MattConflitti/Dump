@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen';
+import StartScreen from '../screens/StartScreen';
 
 export default createRouter(() => ({
   splash: () => SplashScreen,
