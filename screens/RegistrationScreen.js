@@ -14,7 +14,7 @@ import {
 import { MonoText } from '../components/StyledText';
 import Router from '../navigation/Router';
 
-export default class LoginScreen extends React.Component {
+export default class RegistrationScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
