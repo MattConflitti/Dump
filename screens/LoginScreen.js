@@ -32,11 +32,13 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <View>
+          <View style={{
+          justifyContent: 'center'
+          }}>
             <Image style={{
                    width: 200,
-                   height: 50,
-                   resizeMode: 'contain'
+                   resizeMode: 'contain',
+                   alignSelf: 'center'
                    }}
                    source={require('../assets/images/dump_logo.png')}
                    />
