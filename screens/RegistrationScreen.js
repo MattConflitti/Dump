@@ -51,7 +51,7 @@ export default class LoginScreen extends React.Component {
 					<View style={styles.helpContainer}>
 						<TextInput
 							style={styles.textInput}
-							onChangeText={(text) => this.setState({name})}
+							onChangeText={(text) => this.setState({text})}
 							value={this.state.name}
 							placeholder="Name"
 						/>
