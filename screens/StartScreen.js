@@ -13,7 +13,6 @@ import {
 
 import { MonoText } from '../components/StyledText';
 import Router from '../navigation/Router';
-import { NavigationStyles } from '@exponent/ex-navigation';
 
 export default class LoginScreen extends React.Component {
   constructor(props) {
@@ -28,10 +27,7 @@ export default class LoginScreen extends React.Component {
     navigationBar: {
       visible: false,
     },
-    styles: {
-        ...NavigationStyles.SlideHorizontal,
-    }
-  };
+  }
 
   render() {
     return (
@@ -50,29 +46,18 @@ export default class LoginScreen extends React.Component {
           <ScrollView
               style={styles.container}
               contentContainerStyle={styles.contentContainer}>
-            <View style={styles.helpContainer}>
-              <TextInput
-                  style={styles.textInput}
-                  onChangeText={(text) => this.setState({text})}
-                  value={this.state.text}
-                  placeholder="Email/Phone Number"
-                  underlineColorAndroid={'transparent'}
-              />
-              <TextInput
-                  style={styles.textInput}
-                  onChangeText={(password) => this.setState({password})}
-                  value={this.state.password}
-                  secureTextEntry={true}
-                  placeholder="Password"
-                  underlineColorAndroid={'transparent'}
-              />
-            </View>
             <View>
               <TouchableOpacity
-                  onPress={this._onPressButton}
+                  onPress={this._onPressRegisterButton}
                   activeOpacity={0.6}
-                  style={styles.button}>
-                <Text style={styles.buttonText}>Login</Text>
+                  style={styles.registerButton}>
+                <Text style={styles.registerButtonText}>Register</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                  onPress={this._onPressLoginButton}
+                  activeOpacity={0.6}
+                  style={styles.loginButton}>
+                <Text style={styles.loginButtonText}>Login</Text>
               </TouchableOpacity>
             </View>
           </ScrollView>
@@ -105,15 +90,19 @@ export default class LoginScreen extends React.Component {
 
   _handleLearnMorePress = () => {
     Linking.openURL('https://docs.getexponent.com/versions/latest/guides/development-mode');
-  }
+  };
 
   _handleHelpPress = () => {
     Linking.openURL('https://docs.getexponent.com/versions/latest/guides/up-and-running.html#can-t-see-your-changes');
-  }
+  };
 
-  _onPressButton = () => {
-    this.props.navigator.replace(Router.getRoute('home'));
-  }
+  _onPressLoginButton = () => {
+    this.props.navigator.push(Router.getRoute('login'));
+  };
+
+  _onPressRegisterButton = () => {
+    this.props.navigator.push(Router.getRoute('registration'));
+  };
 }
 
 const styles = StyleSheet.create({
@@ -122,16 +111,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 10
   },
-  button: {
+  registerButton: {
     backgroundColor: '#1c75bc',
     borderRadius: 20,
     justifyContent: 'center',
     height: 40,
     padding: 5,
+    marginBottom: 10
   },
-  buttonText: {
+  loginButton: {
+    borderRadius: 20,
+    justifyContent: 'center',
+    borderColor: '#1c75bc',
+    borderWidth: 1,
+    height: 40,
+    padding: 5,
+  },
+  registerButtonText: {
     textAlign: 'center',
     color: '#ffffff'
+  },
+  loginButtonText: {
+    textAlign: 'center',
+    color: '#1c75bc'
   },
   textInput: {
     textAlign: 'center',
@@ -141,10 +143,7 @@ const styles = StyleSheet.create({
     borderColor: '#999999',
     borderWidth: 1,
     marginBottom: 10,
-    borderRadius: 20,
-    flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'stretch',
+    borderRadius: 20
   },
   developmentModeText: {
     marginBottom: 20,

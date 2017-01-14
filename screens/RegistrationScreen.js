@@ -13,6 +13,7 @@ import {
 
 import { MonoText } from '../components/StyledText';
 import Router from '../navigation/Router';
+import { NavigationStyles } from '@exponent/ex-navigation';
 
 export default class RegistrationScreen extends React.Component {
 	constructor(props) {
@@ -29,6 +30,9 @@ export default class RegistrationScreen extends React.Component {
 		navigationBar: {
 			visible: false,
 		},
+		styles: {
+			...NavigationStyles.SlideHorizontal,
+		}
 	};
 
 	render() {
@@ -123,7 +127,7 @@ export default class RegistrationScreen extends React.Component {
 	}
 
 	_onPressButton = () => {
-		this.props.navigator.replace(Router.getRoute('home'));
+		this.props.navigator.push(Router.getRoute('login'));
 	}
 }
 

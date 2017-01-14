@@ -15,7 +15,7 @@ export default createRouter(() => ({
     basic: () => MenuDrawer,
   home: () => HomeScreen,
   login: () => LoginScreen,
-    registration: () => RegistrationScreen,
+  registration: () => RegistrationScreen,
   links: () => LinksScreen,
   settings: () => SettingsScreen
 }));
