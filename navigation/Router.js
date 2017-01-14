@@ -7,12 +7,11 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import MenuDrawer from '../components/MenuDrawer';
 import LoginScreen from '../screens/LoginScreen';
 
 export default createRouter(() => ({
   splash: () => SplashScreen,
-    basic: () => MenuDrawer,
+  start: () => StartScreen,
   home: () => HomeScreen,
   login: () => LoginScreen,
   registration: () => RegistrationScreen,
