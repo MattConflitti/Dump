@@ -12,7 +12,7 @@ class SplashScreen extends Component {
     componentWillMount () {
         let navigator = this.props.navigator;
         setTimeout (() => {
-            navigator.replace(Router.getRoute('home'));
+            navigator.replace(Router.getRoute('login'));
         }, 3000);
     }
 
