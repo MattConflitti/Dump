@@ -20,6 +20,10 @@
     "assetExts": ["ttf"]
   },
   "ios": {
-    "supportsTablet": true
+    "supportsTablet": true,
+    "bundleIdentifier": "com.dump"
+  },
+  "android": {
+    "package": "com.dump"
   }
 }
