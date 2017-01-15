@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import RegistrationScreen from '../screens/RegistrationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen';
+import ListingScreen from '../screens/ListingScreen';
 import StartScreen from '../screens/StartScreen';
 
 export default createRouter(() => ({
@@ -17,5 +18,6 @@ export default createRouter(() => ({
   login: () => LoginScreen,
   registration: () => RegistrationScreen,
   links: () => LinksScreen,
-  settings: () => SettingsScreen
+  settings: () => SettingsScreen,
+  listing: () => ListingScreen
 }));
