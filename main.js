@@ -54,8 +54,9 @@ class AppContainer extends React.Component {
       return (
         <View style={styles.container}>
           <NavigationProvider router={Router}>
-            <StackNavigation id="root" initialRoute={Router.getRoute('splash')} />
+            <StackNavigation id="root" initialRoute={Router.getRoute('home')} />
           </NavigationProvider>
+
 
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}

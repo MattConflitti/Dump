@@ -11,26 +11,83 @@ import {
 } from 'react-native';
 
 import MenuDrawer from '../components/MenuDrawer';
+import MapView from 'react-native-maps';
+import MapSearch from '../components/MapSearch';
 
 export default class HomeScreen extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            region: {
+                latitude: 37.78825,
+                longitude: -122.4324,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+            },
+            markers: [
+                {
+                    latlng: {
+                        latitude: 37.78825,
+                        longitude: -122.4324
+                    },
+                    title: "Haitham",
+                    description: "123 Main St San Francisco, CA"
+                }
+            ],
+            showFooter: false
+        };
+    }
     static route = {
         navigationBar: {
             visible:false,
         },
+    };
+
+    onRegionChange(region) {
+        this.setState({ region });
+    }
+
+    onMarkerPress() {
+        this.setState({ showFooter: true });
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
     }
 
   render() {
+      var update = function() {
+          if (this.state.showFooter) {
+              return (<View style={styles.footer}>
+                  {/*<View style={styles.circle}></View>*/}
+                  <Text>Footer</Text>
+              </View>);
+          } else {
+              return null; // or something like (<Text>Some other view</Text>)
+          }
+      }.bind(this);
     return (
-    <MenuDrawer navigator={this.props.navigator}>
-      <View style={styles.container}>
-        <ScrollView
-            style={styles.container}
-            contentContainerStyle={styles.contentContainer}>
-
-          <Text>MAP GOES HERE</Text>
-
-        </ScrollView>
+    <MenuDrawer navigator={this.props.navigator} title="Find a Spot">
+      <View style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <MapSearch style={{zIndex:99}} />
+        <MapView
+            style={styles.map}
+            initialRegion={this.state.region}
+            onRegionChange={this.onRegionChange.bind(this)}
+            onMarkerPress={this.onMarkerPress.bind(this)}
+        >
+            {this.state.markers.map(marker => (
+                <MapView.Marker
+                    coordinate={marker.latlng}
+                    title={marker.title}
+                    description={marker.description}
+                    image={require('../assets/images/pin.png')}
+                    key={marker.title}
+                />
+            ))}
+        </MapView>
       </View>
+        {update()}
     </MenuDrawer>
 
     );
@@ -70,9 +127,15 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex: 1
   },
+    map: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
@@ -92,6 +155,14 @@ const styles = StyleSheet.create({
     height: 34.5,
     marginTop: 3,
   },
+    footer: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        height: 150,
+        bottom: 0,
+        backgroundColor: '#fff'
+    },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,

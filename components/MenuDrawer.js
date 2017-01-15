@@ -7,47 +7,13 @@ const {
     Text,
     View,
     TouchableOpacity,
+    Image
 } = require('react-native');
 const { Component } = React;
 
-import {
-    StackNavigation,
-    TabNavigation,
-    TabNavigationItem,
-} from '@exponent/ex-navigation';
-import {
-    FontAwesome,
-} from '@exponent/vector-icons';
 import Router from '../navigation/Router';
+import ImageButton from './ImageButton';
 
-const styles = StyleSheet.create({
-    button: {
-        position: 'absolute',
-        top: 20,
-        padding: 10,
-    },
-    caption: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        alignItems: 'center',
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
 
 class Button extends Component {
     handlePress(e) {
@@ -100,13 +66,78 @@ export default class MenuDrawer extends Component {
                 isOpen={this.state.isOpen}
                 onChange={(isOpen) => this.updateMenuState(isOpen)}>
 
-                {this.props.children}
-                {/*<StackNavigation initialRoute={this.state.selectedItem} />*/}
+                <View style={styles.header}>
+                    <Button style={{alignSelf: 'center'}} onPress={() => this.toggle()}>
+                        <Image
+                            style={{flex: 1,
+                                width: 30,
+                                height:30,
+                                resizeMode: 'contain',
+                                marginTop: 10
+                            }}
+                            source={require('../assets/images/menu_icon.png')}
+                        />
+                    </Button>
+                    <Text style={{alignSelf: 'center', fontSize: 20}}>{this.props.title}</Text>
+                    <Button style={{alignSelf: 'center'}}>
+                        <Image
+                            style={{flex: 1,
+                                width: 30,
+                                height:30,
+                                resizeMode: 'contain',
+                                marginTop: 10
+                            }}
+                            source={require('../assets/images/gear_icon.png')}
+                        />
+                    </Button>
+                </View>
 
-                <Button style={styles.button} onPress={() => this.toggle()}>
-                    Menu
-                </Button>
+                {this.props.children}
             </SideMenu>
         );
     }
 };
+
+const styles = StyleSheet.create({
+    header: {
+        zIndex:99,
+        flexDirection: 'row',
+        backgroundColor: '#ccc',
+        justifyContent: 'space-between',
+        height: 60,
+        paddingTop: 15,
+        paddingLeft: 5,
+        paddingRight: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
+        position: 'relative'
+    },
+    button: {
+        position: 'absolute',
+        top: 20,
+        padding: 10,
+    },
+    caption: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        alignItems: 'center',
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+});
