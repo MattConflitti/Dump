@@ -10,14 +10,16 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ListingScreen from '../screens/ListingScreen';
 import StartScreen from '../screens/StartScreen';
+import ManageSpotsScreen from '../screens/ManageSpotsScreen';
 
 export default createRouter(() => ({
-  splash: () => SplashScreen,
-  start: () => StartScreen,
-  home: () => HomeScreen,
-  login: () => LoginScreen,
-  registration: () => RegistrationScreen,
-  links: () => LinksScreen,
-  settings: () => SettingsScreen,
-  listing: () => ListingScreen
+    splash: () => SplashScreen,
+    start: () => StartScreen,
+    home: () => HomeScreen,
+    login: () => LoginScreen,
+    registration: () => RegistrationScreen,
+    links: () => LinksScreen,
+    settings: () => SettingsScreen,
+    listing: () => ListingScreen,
+    manage: () => ManageSpotsScreen
 }));

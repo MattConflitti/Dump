@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
         flex: 1,
         width: window.width,
         height: window.height,
-        backgroundColor: '#f8f8f8'
+        backgroundColor: '#414141'
     },
     avatarContainer: {
         marginTop: 20,
         padding:20,
         borderBottomWidth: 1,
-        borderBottomColor: 'gray'
+        borderBottomColor: 'white'
     },
     avatar: {
         width: 48,
@@ -35,17 +35,19 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 80,
         top: 30,
-        fontSize: 25
+        fontSize: 25,
+        color: 'white'
     },
     item: {
         fontSize: 20,
         fontWeight: '300',
         paddingLeft: 20,
+        color: 'white'
 
     },
     itemContainer: {
         borderBottomWidth: 1,
-        borderBottomColor: 'gray',
+        borderBottomColor: 'white',
         paddingTop: 10,
         paddingBottom: 10
     }
@@ -83,14 +85,14 @@ module.exports = class Menu extends Component {
                 </View>
                 <View style={styles.itemContainer}>
                     <Text
-                        onPress={() => this.props.onItemSelected('home')}
+                        onPress={() => this.props.onItemSelected('manage')}
                         style={styles.item}>
                         Manage Spots
                     </Text>
                 </View>
                 <View style={styles.itemContainer}>
                     <Text
-                        onPress={() => this.props.onItemSelected('home')}
+                        onPress={() => this.props.onItemSelected('settings')}
                         style={styles.item}>
                         Settings
                     </Text>

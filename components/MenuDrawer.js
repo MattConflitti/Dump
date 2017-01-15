@@ -77,14 +77,14 @@ export default class MenuDrawer extends Component {
                                 resizeMode: 'contain',
                                 marginTop: 10
                             }}
-                            source={require('../assets/images/menu_icon.png')}
+                            source={require('../assets/images/menu_icon_white.png')}
                         />
                     </Button>
-                    <Text style={{alignSelf: 'center', fontSize: 20}}>{this.props.title}</Text>
+                    <Text style={{alignSelf: 'center', fontSize: 20, color: 'white'}}>{this.props.title}</Text>
                     {this.props.navigator.getCurrentRoute().routeName == 'home' ? <Button>   </Button> : <Button onPress={() => {
                             this.props.navigator.pop();
                         }} style={{alignSelf: 'center'}}>
-                            Back
+                            <Text style={{color:'white'}}>Back</Text>
                         </Button> }
 
                 </View>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     header: {
         zIndex:99,
         flexDirection: 'row',
-        backgroundColor: '#ccc',
+        backgroundColor: '#414141',
         justifyContent: 'space-between',
         height: 60,
         paddingTop: 15,

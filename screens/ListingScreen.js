@@ -94,28 +94,28 @@ export default class HomeScreen extends React.Component {
               }}>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                   <View style={{flex: 4}}>
-                    <Text style={{fontSize: 18}}>Heritage Hill Single Parking Space</Text>
+                    <Text style={{fontSize: 18, color:'white'}}>Heritage Hill Single Parking Space</Text>
                   </View>
                   <View style={{flex: 2}}>
-                    <Text style={{flex: 1}}>$4.00 <Text style={{fontSize: 10}}>hourly</Text></Text>
-                    <Text style={{flex: 1}}>$15.00 <Text style={{fontSize: 10}}>daily</Text></Text>
+                    <Text style={{flex: 1, color:'white'}}>$4.00 <Text style={{fontSize: 10, color:'white'}}>hourly</Text></Text>
+                    <Text style={{flex: 1, color:'white'}}>$15.00 <Text style={{fontSize: 10, color:'white'}}>daily</Text></Text>
                   </View>
                 </View>
                 <View style={{flex: 1}}>
-                  <Text style={{color: '#333333'}}>Wonderful private parking spot in the shade!</Text>
+                  <Text style={{color: 'white'}}>Wonderful private parking spot in the shade!</Text>
                   <Text style={styles.heading}>Location</Text>
-                  <Text style={{color: '#333333'}}>2206 Pine St, San Francisco, CA 94115</Text>
+                  <Text style={{color: 'white'}}>2206 Pine St, San Francisco, CA 94115</Text>
                   <Text style={styles.heading}>Availability</Text>
-                  <Text style={{color: '#333333'}}>Friday: 6:00pm - 12:00am</Text>
-                  <Text style={{color: '#333333'}}>Saturday: All day</Text>
-                  <Text style={{color: '#333333'}}>Sunday: All day</Text>
+                  <Text style={{color: 'white'}}>Friday: 6:00pm - 12:00am</Text>
+                  <Text style={{color: 'white'}}>Saturday: All day</Text>
+                  <Text style={{color: 'white'}}>Sunday: All day</Text>
                   <Text style={styles.heading}>Ratings</Text>
                   <View style={{flex: 5, flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <Ionicons name="md-star" size={32} color="green" style={{flex: 1, textAlign: 'center'}}/>
-                    <Ionicons name="md-star" size={32} color="green" style={{flex: 1, textAlign: 'center'}}/>
-                    <Ionicons name="md-star" size={32} color="green" style={{flex: 1, textAlign: 'center'}}/>
-                    <Ionicons name="md-star-half" size={32} color="green" style={{flex: 1, textAlign: 'center'}}/>
-                    <Ionicons name="md-star-outline" size={32} color="green" style={{flex: 1, textAlign: 'center'}}/>
+                    <Ionicons name="md-star" size={32} color="yellow" style={{flex: 1, textAlign: 'center'}}/>
+                    <Ionicons name="md-star" size={32} color="yellow" style={{flex: 1, textAlign: 'center'}}/>
+                    <Ionicons name="md-star" size={32} color="yellow" style={{flex: 1, textAlign: 'center'}}/>
+                    <Ionicons name="md-star-half" size={32} color="yellow" style={{flex: 1, textAlign: 'center'}}/>
+                    <Ionicons name="md-star-outline" size={32} color="yellow" style={{flex: 1, textAlign: 'center'}}/>
                   </View>
                   <TouchableOpacity
                       onPress={this._onPressButton}
@@ -165,10 +165,14 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#414141',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
+    },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
@@ -219,7 +223,8 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginTop: 10
+    marginTop: 10,
+      color:'white'
   },
   getStartedText: {
     fontSize: 17,

@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'stretch',
         backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: '#414141',
         borderRadius: 5,
         marginLeft: 5,
         marginRight: 5,

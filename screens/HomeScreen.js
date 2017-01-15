@@ -66,7 +66,7 @@ export default class HomeScreen extends React.Component {
                         bottom: 0,
                         flex: 1,
                         height: this.state.showFooter ? 100 : 0,
-                        backgroundColor: '#ffffff',
+                        backgroundColor: '#414141',
                         zIndex: 9999,
                         flexDirection: 'row',
                         alignItems:'flex-start',
@@ -75,23 +75,24 @@ export default class HomeScreen extends React.Component {
                                source={require('../assets/images/spot-image.jpg')}
                         />
                         <View style={{
-                            paddingLeft: 5,
+                            paddingLeft: 15,
+                            paddingTop: 5,
                             justifyContent:'center',
                             alignItems:'center',
                             width:165,
                             flexDirection: 'column'
                         }}>
-                            <Text style={{fontSize:12, alignSelf:'flex-start'}}>
+                            <Text style={{fontSize:12, alignSelf: 'flex-start', color: 'white'}}>
                                 2206 Pine St, San Francisco, CA 94115
                             </Text>
                             <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
                                 <View style={{flex: 1, justifyContent:'center',alignItems:'center'}}>
-                                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>$4</Text>
-                                    <Text style={{fontSize: 12}}>per hour</Text>
+                                    <Text style={{fontSize: 25, fontWeight: 'bold', color: 'white'}}>$4</Text>
+                                    <Text style={{fontSize: 12, color: 'white'}}>per hour</Text>
                                 </View>
                                 <View style={{width:100, justifyContent:'center', alignItems:'center'}}>
-                                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>4-8pm</Text>
-                                    <Text style={{fontSize: 12}}>Availability</Text>
+                                    <Text style={{fontSize: 25, fontWeight: 'bold', color: 'white'}}>4-8pm</Text>
+                                    <Text style={{fontSize: 12, color: 'white'}}>Availability</Text>
                                 </View>
                             </View>
                         </View>
@@ -177,7 +178,11 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
     },
     map: {
         position: 'absolute',
@@ -212,7 +217,7 @@ const styles = StyleSheet.create({
         top: 0,
         flex: 1,
         height: 150,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#414141',
         zIndex: 9999
     },
     getStartedContainer: {
