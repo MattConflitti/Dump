@@ -9,6 +9,7 @@ import RegistrationScreen from '../screens/RegistrationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ListingScreen from '../screens/ListingScreen';
+import AddListingScreen from '../screens/AddListingScreen';
 import StartScreen from '../screens/StartScreen';
 
 export default createRouter(() => ({
@@ -19,5 +20,6 @@ export default createRouter(() => ({
   registration: () => RegistrationScreen,
   links: () => LinksScreen,
   settings: () => SettingsScreen,
-  listing: () => ListingScreen
+  listing: () => ListingScreen,
+  listASpot: () => AddListingScreen
 }));
