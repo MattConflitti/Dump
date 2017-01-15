@@ -7,12 +7,13 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View,
+    View
 } from 'react-native';
 
 import MenuDrawer from '../components/MenuDrawer';
 import MapView from 'react-native-maps';
 import MapSearch from '../components/MapSearch';
+import Router from '../navigation/Router';
 
 export default class HomeScreen extends React.Component {
     constructor() {
@@ -21,8 +22,8 @@ export default class HomeScreen extends React.Component {
             region: {
                 latitude: 37.78825,
                 longitude: -122.4324,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
+                latitudeDelta: 0.03,
+                longitudeDelta: 0.01,
             },
             markers: [
                 {
@@ -48,15 +49,7 @@ export default class HomeScreen extends React.Component {
     }
 
     onMarkerPress() {
-        // console.log(this.setState());
-        // this.setState({ showFooter: true });
-        this.setState({ showFooter: true }, function () {
-            // console.log(this.setState(this.state));
-        });
-    }
-
-    updateFooterVisibility() {
-
+        this.setState({ showFooter: true });
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -68,19 +61,64 @@ export default class HomeScreen extends React.Component {
             <MenuDrawer navigator={this.props.navigator} title="Find a Spot">
                 <View style={styles.container} contentContainerStyle={styles.contentContainer}>
                     <View style={{position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        flex: 1,
-        height: this.state.showFooter ? 100 : 0,
-        backgroundColor: '#ffffff',
-        zIndex: 9999}}>
-                        <View className="spot-image" style={{flex: 1,position: 'absolute', left: 0, top: 0}}>
-                            <Image style={{resizeMode: 'contain', height: 100, justifyContent: 'flex-start'}}
-                                   source={require('../assets/images/spot-image.jpg')}
-                            />
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        flex: 1,
+                        height: this.state.showFooter ? 100 : 0,
+                        backgroundColor: '#ffffff',
+                        zIndex: 9999,
+                        flexDirection: 'row',
+                        alignItems:'flex-start',
+                        justifyContent: 'flex-start'}}>
+                        <Image style={{resizeMode: 'contain', width: 150, height: 100}}
+                               source={require('../assets/images/spot-image.jpg')}
+                        />
+                        <View style={{
+                            paddingLeft: 5,
+                            justifyContent:'center',
+                            alignItems:'center',
+                            width:165,
+                            flexDirection: 'column'
+                        }}>
+                            <Text style={{fontSize:12, alignSelf:'flex-start'}}>
+                                2206 Pine St, San Francisco, CA 94115
+                            </Text>
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'space-between'}}>
+                                <View style={{flex: 1, justifyContent:'center',alignItems:'center'}}>
+                                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>$4</Text>
+                                    <Text style={{fontSize: 12}}>per hour</Text>
+                                </View>
+                                <View style={{width:100, justifyContent:'center', alignItems:'center'}}>
+                                    <Text style={{fontSize: 25, fontWeight: 'bold'}}>4-8pm</Text>
+                                    <Text style={{fontSize: 12}}>Availability</Text>
+                                </View>
+                            </View>
                         </View>
-                        <Text>Footer</Text>
+                        <TouchableOpacity style={{
+                            backgroundColor: '#3cba54',
+                            height: this.state.showFooter ? 50 : 0,
+                            width: 50,
+                            borderRadius: 25,
+                            position: 'absolute',
+                            bottom: 65,
+                            right: 10,
+                            borderColor: '#ffffff',
+                            borderWidth: this.state.showFooter ? 2 : 0,
+                            flex: 1
+                        }}
+                        onPress={() => {
+                            this.props.navigator.push(Router.getRoute('listing'));
+                        }}><Image style={{
+                            flex: 1,
+                            resizeMode: 'contain',
+                            alignSelf: 'center',
+                            justifyContent: 'center',
+                            height: 30,
+                            width: 30
+                        }}
+                                  source={require('../assets/images/arrow.png')}
+                        /></TouchableOpacity>
                     </View>
                     <MapSearch style={{zIndex:99}} />
                     <MapView

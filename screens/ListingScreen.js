@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-        <MenuDrawer navigator={this.props.navigator} style={{flex: 1}}>
+        <MenuDrawer navigator={this.props.navigator} style={{flex: 1}} title="Reserve a Spot">
           <View style={styles.container}>
             <ScrollView
                 style={styles.container}
@@ -56,8 +56,13 @@ export default class HomeScreen extends React.Component {
                        source={require('../assets/images/hmaya.jpeg')}
                 />
               </View>
-              <View style={{
-                   backgroundColor: '#cccccc',
+              <TouchableOpacity onPress={() => {
+                  Linking.openURL(
+                        'https://www.google.com/maps/dir/37.78825,+-122.4324/Alta+Plaza+Park/@37.7892357,-122.4380429,17z/data=!3m1!4b1!4m12!4m11!1m3!2m2!1d-122.4324!2d37.78825!1m5!1m1!1s0x0:0xffb0154102337e61!2m2!1d-122.4376241!2d37.7911417!3e0'
+                  )
+              }}
+                                style={{
+                   backgroundColor: '#3cba54',
                    height: 50,
                    width: 50,
                    borderRadius: 25,
@@ -76,9 +81,9 @@ export default class HomeScreen extends React.Component {
                    height: 30,
                    width: 30
                    }}
-                       source={require('../assets/images/car-icon.png')}
+                       source={require('../assets/images/car_icon.png')}
                 />
-              </View>
+              </TouchableOpacity>
               <View style={{
               marginTop: 50,
               flex: 1,
@@ -99,7 +104,7 @@ export default class HomeScreen extends React.Component {
                 <View style={{flex: 1}}>
                   <Text style={{color: '#333333'}}>Wonderful private parking spot in the shade!</Text>
                   <Text style={styles.heading}>Location</Text>
-                  <Text style={{color: '#333333'}}>111 Houseman Ave NE, Grand Rapids, MI 49503</Text>
+                  <Text style={{color: '#333333'}}>2206 Pine St, San Francisco, CA 94115</Text>
                   <Text style={styles.heading}>Availability</Text>
                   <Text style={{color: '#333333'}}>Friday: 6:00pm - 12:00am</Text>
                   <Text style={{color: '#333333'}}>Saturday: All day</Text>

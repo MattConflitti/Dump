@@ -17,12 +17,13 @@ const styles = StyleSheet.create({
         flex: 1,
         width: window.width,
         height: window.height,
-        backgroundColor: 'gray',
-        padding: 20,
+        backgroundColor: '#f8f8f8'
     },
     avatarContainer: {
-        marginBottom: 20,
         marginTop: 20,
+        padding:20,
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray'
     },
     avatar: {
         width: 48,
@@ -32,14 +33,22 @@ const styles = StyleSheet.create({
     },
     name: {
         position: 'absolute',
-        left: 70,
-        top: 20,
+        left: 80,
+        top: 30,
+        fontSize: 25
     },
     item: {
-        fontSize: 14,
+        fontSize: 20,
         fontWeight: '300',
-        paddingTop: 5,
+        paddingLeft: 20,
+
     },
+    itemContainer: {
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray',
+        paddingTop: 10,
+        paddingBottom: 10
+    }
 });
 
 module.exports = class Menu extends Component {
@@ -57,17 +66,35 @@ module.exports = class Menu extends Component {
                     <Text style={styles.name}>John Smith</Text>
                 </View>
 
-                <Text
-                    onPress={() => this.props.onItemSelected('home')}
-                    style={styles.item}>
-                    Home
-                </Text>
+                <View style={styles.itemContainer}>
+                    <Text
+                        onPress={() => this.props.onItemSelected('home')}
+                        style={styles.item}>
+                        Find A Spot
+                    </Text>
+                </View>
 
-                <Text
-                    onPress={() => this.props.onItemSelected('links')}
-                    style={styles.item}>
-                    Links
-                </Text>
+                <View  style={styles.itemContainer}>
+                    <Text
+                        onPress={() => this.props.onItemSelected('listASpot')}
+                        style={styles.item}>
+                        List a Spot
+                    </Text>
+                </View>
+                <View style={styles.itemContainer}>
+                    <Text
+                        onPress={() => this.props.onItemSelected('home')}
+                        style={styles.item}>
+                        Manage Spots
+                    </Text>
+                </View>
+                <View style={styles.itemContainer}>
+                    <Text
+                        onPress={() => this.props.onItemSelected('home')}
+                        style={styles.item}>
+                        Settings
+                    </Text>
+                </View>
             </ScrollView>
         );
     }

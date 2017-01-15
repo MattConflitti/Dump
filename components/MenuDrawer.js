@@ -50,12 +50,14 @@ export default class MenuDrawer extends Component {
     }
 
     onMenuItemSelected = (item) => {
+        if(item != this.props.navigator.getCurrentRoute().routeName) {
+            this.props.navigator.push(Router.getRoute(item));
+        }
         this.setState({
             isOpen: false,
             selectedItem: item
         });
-        this.props.navigator.push(Router.getRoute(item));
-    }
+    };
 
     render() {
         const menu = <Menu onItemSelected={this.onMenuItemSelected.bind(this)} />;
@@ -79,17 +81,12 @@ export default class MenuDrawer extends Component {
                         />
                     </Button>
                     <Text style={{alignSelf: 'center', fontSize: 20}}>{this.props.title}</Text>
-                    <Button style={{alignSelf: 'center'}}>
-                        <Image
-                            style={{flex: 1,
-                                width: 30,
-                                height:30,
-                                resizeMode: 'contain',
-                                marginTop: 10
-                            }}
-                            source={require('../assets/images/gear_icon.png')}
-                        />
-                    </Button>
+                    {this.props.navigator.getCurrentRoute().routeName == 'home' ? <Button>   </Button> : <Button onPress={() => {
+                            this.props.navigator.pop();
+                        }} style={{alignSelf: 'center'}}>
+                            Back
+                        </Button> }
+
                 </View>
 
                 {this.props.children}
