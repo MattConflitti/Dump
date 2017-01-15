@@ -31,36 +31,48 @@ export default class StartScreen extends React.Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <View style={{
+        <View style={{flex: 1, alignItems:'stretch'}}>
+          <View style={{flex: 1, backgroundColor: 'rgba(255, 255, 255, .3)', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 2}}></View>
+          <Image style={{
+                   flex: 1,
+                   resizeMode: 'cover',
+                   width: null,
+                   height: null
+                   }}
+                 source={require('../assets/images/login-bg.jpg')}
+          />
+          <View style={{flex: 1, position: 'absolute', padding: 10, top: 0, left: 0, right: 0, bottom: 0, zIndex: 3}}>
+            <View style={{
           justifyContent: 'center'
           }}>
-            <Image style={{
+              <Image style={{
                    width: 200,
                    resizeMode: 'contain',
-                   alignSelf: 'center'
+                   alignSelf: 'center',
+                   top: 20
                    }}
-                   source={require('../assets/images/dump_logo.png')}
-                   />
-          </View>
-          <ScrollView
-              style={styles.container}
-              contentContainerStyle={styles.contentContainer}>
-            <View>
-              <TouchableOpacity
-                  onPress={this._onPressRegisterButton}
-                  activeOpacity={0.6}
-                  style={styles.registerButton}>
-                <Text style={styles.registerButtonText}>Register</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                  onPress={this._onPressLoginButton}
-                  activeOpacity={0.6}
-                  style={styles.loginButton}>
-                <Text style={styles.loginButtonText}>Login</Text>
-              </TouchableOpacity>
+                     source={require('../assets/images/dump_logo.png')}
+              />
             </View>
-          </ScrollView>
+            <ScrollView
+                style={styles.container}
+                contentContainerStyle={styles.contentContainer}>
+              <View>
+                <TouchableOpacity
+                    onPress={this._onPressRegisterButton}
+                    activeOpacity={0.6}
+                    style={styles.registerButton}>
+                  <Text style={styles.registerButtonText}>Register</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={this._onPressLoginButton}
+                    activeOpacity={0.6}
+                    style={styles.loginButton}>
+                  <Text style={styles.loginButtonText}>Login</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </View>
         </View>
     );
   }
@@ -108,7 +120,6 @@ export default class StartScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     padding: 10
   },
   registerButton: {
@@ -122,8 +133,7 @@ const styles = StyleSheet.create({
   loginButton: {
     borderRadius: 20,
     justifyContent: 'center',
-    borderColor: '#1c75bc',
-    borderWidth: 1,
+    backgroundColor: '#ffffff',
     height: 40,
     padding: 5,
   },
